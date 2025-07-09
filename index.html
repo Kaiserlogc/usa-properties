@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USA Premium Properties | US Real Estate Investments</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+   <!-- Header Section -->
+   <header>
+    <div class="container">
+        <div class="top-bar">
+            <div class="burger-container">
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+            <div class="logo">USA<span>Properties</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#properties">Projects</a></li>
+                    <li><a href="#steps">How to Invest</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="hero">
+            <h1>Invest in US Real Estate</h1>
+            <p>Premium Florida properties: luxury, innovation and high ROI for foreign investors</p>
+            <div class="cta-buttons">
+                <a href="#properties" class="cta-button">View Projects</a>
+                <a href="#contact" class="cta-button">Get Consultation</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scrolling Indicator -->
+    <div class="scroll-indicator">
+        <span>Explore More</span>
+        <div class="arrow-down"></div>
+    </div>
+</header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Invest in USA?</h2>
+                <p>US real estate offers a reliable way to preserve and grow capital with high returns and minimal risks</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Benefits of US Real Estate Investment</h3>
+                    <p>The United States offers one of the most stable and profitable real estate markets in the world. Florida's market is particularly attractive with its dynamic development and constant tourism growth.</p>
+                    <p>Our company specializes in helping foreign investors acquire premium properties in Florida's most promising areas. We guarantee legal security of transactions and maximum return on your investments.</p>
+                    <p>With us, you'll get access to exclusive properties, professional management, and full support at all investment stages.</p>
+                    <a href="#contact" class="cta-button">Learn More</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Luxury home in Florida">
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Обновляем секцию Price Growth -->
+<section class="price-growth">
+    <div class="container">
+        <div class="section-title">
+            <h2>US Real Estate Price Growth</h2>
+            <p>10-year trend showing stable growth in property values</p>
+        </div>
+        
+        <div class="charts-pyramid">
+            <!-- Верхний график (США) -->
+            <div class="chart-top">
+                <div class="chart-wrapper">
+                    <h3><i class="fas fa-flag-usa"></i> US Average Price Growth</h3>
+                    <canvas id="usChart"></canvas>
+                    <div class="chart-description">
+                        <p>Average prices rose from roughly 350 to nearly 690 between Q1 2015 and Q1 2025.</p>
+                        <p>This reflects an approximate increase of 97% nationwide over 10 years, highlighting real estate's strength as a long-term asset class.</p>
+                        <p>Growth accelerated sharply between 2020 and 2022, correlating with pandemic-era housing shifts and historically low interest rates.</p>
+                        <a href="https://fred.stlouisfed.org/series/USSTHPI" target="_blank" class="source-link">
+                            <i class="fas fa-external-link-alt"></i> Official Source: Federal Reserve Economic Data (FRED)
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Нижние графики -->
+            <div class="chart-bottom">
+                <!-- Флорида -->
+                <div class="chart-wrapper">
+                    <h3><i class="fas fa-building"></i> Florida Price Growth</h3>
+                    <canvas id="floridaChart"></canvas>
+                    <div class="chart-description">
+                        <p>Florida's market outpaced the national average, climbing from about 320 to over 800 during the same period — a remarkable increase of roughly 150%.</p>
+                        <p>The state saw rapid price escalation from 2020 to 2022, driven by migration trends and high demand for sunbelt properties.</p>
+                        <a href="https://fred.stlouisfed.org/series/FLSTHPI" target="_blank" class="source-link">
+                            <i class="fas fa-external-link-alt"></i> Official Source: Federal Reserve Economic Data (FRED)
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Аризона -->
+                <div class="chart-wrapper">
+                    <h3><i class="fas fa-sun"></i> Arizona Price Growth</h3>
+                    <canvas id="arizonaChart"></canvas>
+                    <div class="chart-description">
+                        <p>Arizona has seen strong appreciation, with average prices rising from around 320 to nearly 710 between 2015 and 2025 — a gain of approximately 122%.</p>
+                        <p>A sharp upswing occurred between late 2020 and early 2022, fueled by population inflows and tech-sector expansion.</p>
+                        <a href="https://fred.stlouisfed.org/series/AZSTHPI" target="_blank" class="source-link">
+                            <i class="fas fa-external-link-alt"></i> Official Source: Federal Reserve Economic Data (FRED)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Добавляем новую секцию для Halal информации -->
+<section class="halal-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Halal Investment Guarantee</h2>
+            <p>Ethical and Sharia-compliant real estate investments</p>
+            <div class="halal-badge">
+                <i class="fas fa-star"></i> 100% Halal Investments
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+        
+        <div class="halal-info">
+            <div class="halal-points">
+                <div class="halal-point">
+                    <i class="fas fa-check-circle"></i>
+                    <span>No interest-based loans (riba-free)</span>
+                </div>
+                <div class="halal-point">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Ethical property selection</span>
+                </div>
+                <div class="halal-point">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Sharia-compliant contracts</span>
+                </div>
+                <div class="halal-point">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Transparent profit-sharing</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Properties Section -->
+    <section id="properties" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Premium Florida Projects</h2>
+                <p>Exclusive properties in Florida's most prestigious areas with guaranteed returns</p>
+            </div>
+            
+            <div class="properties-grid">
+                <!-- Property 1 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Miami Beach Residence">
+                    </div>
+                    <div class="property-info">
+                        <h3>Miami Beach Residence</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i> Miami Beach, Florida
+                        </div>
+                        <div class="property-price">From $520,000</div>
+                        <p>Luxury ocean-view apartments in the heart of Miami Beach. Modern architecture and premium finishes.</p>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>1-3 Bedrooms</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>750-1,600 sq.ft.</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Completion: 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Property 2 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Orlando Sky Tower">
+                    </div>
+                    <div class="property-info">
+                        <h3>Orlando Sky Tower</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i> Orlando, Florida
+                        </div>
+                        <div class="property-price">From $350,000</div>
+                        <p>Business-class high-rise complex in Orlando's downtown. Perfect combination of comfort, technology and prestigious location.</p>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>Studio-2 Bed</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>500-1,200 sq.ft.</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Completion: 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Property 3 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80" alt="Tampa Bay Luxury Homes">
+                    </div>
+                    <div class="property-info">
+                        <h3>Tampa Bay Luxury Homes</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i> Tampa, Florida
+                        </div>
+                        <div class="property-price">From $850,000</div>
+                        <p>Exclusive waterfront villas in Tampa Bay. Privacy, luxury and direct water access. Ideal for permanent residence and investments.</p>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>3-5 Bedrooms</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>2,000-4,300 sq.ft.</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Ready Properties</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Property 4 -->
+                <div class="property-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Fort Lauderdale Marina">
+                    </div>
+                    <div class="property-info">
+                        <h3>Fort Lauderdale Marina</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i> Fort Lauderdale, Florida
+                        </div>
+                        <div class="property-price">From $620,000</div>
+                        <p>Premium-class apartments with private marina. Ocean views, modern infrastructure and high rental income.</p>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>2-4 Bedrooms</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>1,000-2,000 sq.ft.</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Completion: 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section id="steps" class="steps">
+        <div class="container">
+            <div class="section-title">
+                <h2>How to Invest in US Real Estate</h2>
+                <p>Simple and transparent property acquisition process for foreign investors</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Consultation</h3>
+                    <p>Submit your inquiry and our specialist will contact you</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Property Selection</h3>
+                    <p>We'll find optimal investment options for your budget and goals</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Documentation</h3>
+                    <p>We'll assist with paperwork and banking operations</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Ownership</h3>
+                    <p>We'll hand over the keys and property documents</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Start Investing Today</h2>
+                <p>Submit your inquiry and our specialist will contact you for consultation</p>
+            </div>
+            
+            <div class="contact-form">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country of Residence</label>
+                            <input type="text" id="country" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">Property Type</label>
+                        <select id="interest" class="form-control" required>
+                            <option value="">Select type</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="house">House/Villa</option>
+                            <option value="commercial">Commercial</option>
+                            <option value="land">Land Plot</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Questions</label>
+                        <textarea id="message" class="form-control" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">Submit Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">USA<span>Properties</span></div>
+                    <p>We specialize in helping foreign investors acquire premium US properties. We guarantee legal security of transactions and maximum ROI.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Our Projects</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Miami</a></li>
+                        <li><a href="#">Orlando</a></li>
+                        <li><a href="#">Tampa</a></li>
+                        <li><a href="#">Fort Lauderdale</a></li>
+                        <li><a href="#">Naples</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Miami, Florida, USA</li>
+                        <li><i class="fas fa-phone"></i> +1 (305) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@usaproperties.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2025 USA Properties. All Rights Reserved. | Privacy Policy | Terms of Use</p>
+            </div>
+        </div>
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>
