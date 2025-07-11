@@ -42,7 +42,7 @@
     background-size: cover;
     background-position: center;
     color: var(--text-light);
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
   }
@@ -121,11 +121,6 @@
   z-index: 10;
 }
 
-@media (max-width: 768px) {
-  .scroll-indicator {
-      bottom: 90px; /* Больше места над кнопками */
-  }
-}
 
 .arrow-down {
   width: 40px;
