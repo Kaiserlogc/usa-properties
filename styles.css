@@ -71,14 +71,7 @@
   display: none;
   cursor: pointer;
   z-index: 1001;
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
   transition: all 0.3s ease;
-}
-
-.burger-container:hover {
-  background: rgba(255, 255, 255, 0.2);
 }
 
 .burger {
@@ -914,10 +907,6 @@
     .hero h1 {
       font-size: 3rem;
     }
-
-    .burger-container {
-      display: block;
-  }
   
   nav ul {
       position: fixed;
