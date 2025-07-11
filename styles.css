@@ -66,55 +66,138 @@
     color: var(--accent-blue);
   }
 
-  .burger-container {
-    display: none;
-    cursor: pointer;
-    z-index: 1001;
+/* Обновленные стили для бургер-меню */
+.burger-container {
+  display: none;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.burger-container:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 21px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  position: relative;
 }
 
-.burger div {
-    height: 3px;
-    width: 100%;
-    background-color: white;
-    transition: all 0.3s ease;
+.burger .line {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  border-radius: 2px;
 }
 
 .burger.toggle .line1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
+  transform: translateY(10.5px) rotate(-45deg);
+  background: linear-gradient(to right, #48cae4, #90e0ef);
 }
 
 .burger.toggle .line2 {
-    opacity: 0;
+  opacity: 0;
+  transform: translateX(-20px);
 }
 
 .burger.toggle .line3 {
-    transform: rotate(45deg) translate(-5px, -6px);
+  transform: translateY(-10.5px) rotate(45deg);
+  background: linear-gradient(to right, #48cae4, #90e0ef);
 }
 
-.menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+/* Обновленные стили для индикатора прокрутки */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--white);
+  opacity: 0.8;
+  animation: bounce 2s infinite;
+  z-index: 10;
 }
 
-.menu-overlay.active {
-    opacity: 1;
-    visibility: visible;
+@media (max-width: 768px) {
+  .scroll-indicator {
+      bottom: 90px; /* Больше места над кнопками */
+  }
+}
+
+.arrow-down {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 1.5s infinite;
+}
+
+.arrow-down i {
+  font-size: 1.5rem;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translateY(0); opacity: 0.8; }
+  50% { transform: translateY(-5px); opacity: 1; }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+  40% {transform: translateY(-15px) translateX(-50%);}
+  60% {transform: translateY(-7px) translateX(-50%);}
+}
+
+/* Улучшенное меню для мобильных */
+@media (max-width: 992px) {
+  nav ul {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100%;
+      background: linear-gradient(to bottom, #023e8a, #0077b6);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 100px 40px 40px;
+      transform: translateX(-100%);
+      transition: transform 0.4s ease-in-out;
+      z-index: 1000;
+      box-shadow: 5px 0 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  nav ul.active {
+      transform: translateX(0);
+  }
+  
+  nav ul li {
+      margin: 20px 0;
+      width: 100%;
+  }
+  
+  nav ul li a {
+      font-size: 1.3rem;
+      padding: 10px 0;
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .burger-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
 }
 
 .no-scroll {
@@ -184,6 +267,260 @@
     background: var(--secondary-blue);
     transform: translateY(-3px);
   }
+  
+  /* Halal Investment Section */
+#halal-investment {
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.halal-intro {
+  background: white;
+  padding: 25px 40px;
+  border-radius: 12px;
+  margin: 0 auto 50px;
+  box-shadow: 0 5px 25px rgba(2, 62, 138, 0.08);
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+}
+
+.halal-intro p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #2a4365;
+  margin: 0;
+}
+
+.strategies-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.strategy-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex: 1;
+  min-width: 300px;
+  max-width: 450px;
+}
+
+.strategy-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  position: relative;
+}
+
+.divider-line {
+  flex: 1;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, #0077b6, transparent);
+}
+
+.halal-badge {
+  background: #023e8a;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  margin: 15px 0;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(2, 62, 138, 0.3);
+}
+
+.strategy-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.07);
+  transition: all 0.3s ease;
+  border: 1px solid #e1f0fa;
+  position: relative;
+  overflow: hidden;
+}
+
+.strategy-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 119, 182, 0.15);
+}
+
+.strategy-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #0077b6, #00b4d8);
+}
+
+.strategy-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.strategy-card h3 {
+  color: #023e8a;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.strategy-detail {
+  margin-bottom: 25px;
+}
+
+.strategy-detail strong {
+  display: block;
+  color: #0077b6;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.strategy-detail p {
+  color: #4a5568;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.strategy-numbers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.number-box {
+  background: #f0f8ff;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #cde8f8;
+}
+
+.number-box span {
+  display: block;
+  font-weight: 700;
+  color: #023e8a;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.number-box small {
+  display: block;
+  color: #4a5568;
+  font-size: 0.85rem;
+}
+
+.benefits-section {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 40px;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto 50px;
+}
+
+.benefits-section h3 {
+  color: #023e8a;
+  font-size: 1.8rem;
+  margin-bottom: 35px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.benefit-item {
+  padding: 25px 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid #e6f2ff;
+}
+
+.benefit-item:hover {
+  background: #f8fbff;
+  transform: translateY(-5px);
+  box-shadow: 0 7px 15px rgba(0, 119, 182, 0.1);
+}
+
+.benefit-item i {
+  font-size: 2.5rem;
+  color: #0077b6;
+  margin-bottom: 20px;
+}
+
+.benefit-item h4 {
+  color: #023e8a;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.benefit-item p {
+  color: #4a5568;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.cta-section {
+  background: linear-gradient(135deg, #0077b6, #023e8a);
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 10px 30px rgba(2, 62, 138, 0.3);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-section p {
+  font-size: 1.25rem;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.cta-section .cta-button {
+  background: white;
+  color: #0077b6;
+  font-weight: 700;
+  padding: 15px 50px;
+  font-size: 1.1rem;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.cta-section .cta-button:hover {
+  background: #e6f7ff;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
   
   /* About section */
   .section {
@@ -294,91 +631,6 @@
 .source-link i {
   margin-right: 5px;
 }
-
-
-@media (max-width: 768px) {
-  .chart-bottom {
-      grid-template-columns: 1fr;
-  }
-
-  .chart-description {
-    font-size: 0.85rem;
-    padding: 10px;
-}
-}
-
-/* Стили для новой секции Halal */
-.halal-section {
-  background-color: var(--light-blue);
-  padding: 100px 0;
-  text-align: center;
-}
-
-.halal-section .section-title {
-  margin-bottom: 40px;
-}
-
-.halal-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--dark-blue);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 30px;
-  margin-top: 20px;
-  font-weight: 600;
-}
-
-.halal-badge i {
-  color: var(--accent-blue);
-}
-
-.halal-info {
-  max-width: 800px;
-  margin: 0 auto;
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: var(--shadow);
-}
-
-.halal-info h3 {
-  color: var(--dark-blue);
-  margin-bottom: 20px;
-  font-size: 1.8rem;
-}
-
-.halal-points {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  text-align: left;
-}
-
-.halal-point {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--dark-blue);
-  font-weight: 500;
-}
-
-.halal-point i {
-  color: var(--accent-blue);
-  font-size: 1.2rem;
-}
-
-@media (max-width: 768px) {
-  .halal-points {
-      grid-template-columns: 1fr;
-  }
-  .halal-badge {
-      font-size: 0.9rem;
-      padding: 8px 15px;
-  }
-}
-  
   /* Properties */
   .properties-grid {
     display: grid;
@@ -647,39 +899,6 @@
     font-size: 0.9rem;
   }
 
-  /* Scrolling Indicator */
-.scroll-indicator {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--white);
-    opacity: 0.8;
-    animation: bounce 2s infinite;
-}
-
-.scroll-indicator span {
-    margin-bottom: 10px;
-    font-size: 0.9rem;
-}
-
-.arrow-down {
-    width: 20px;
-    height: 20px;
-    border-right: 2px solid var(--white);
-    border-bottom: 2px solid var(--white);
-    transform: rotate(45deg);
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
-    40% {transform: translateY(-20px) translateX(-50%);}
-    60% {transform: translateY(-10px) translateX(-50%);}
-}
-
   /* Responsive */
   @media (max-width: 992px) {
     .about-content,
@@ -726,11 +945,32 @@
   nav ul li a {
       font-size: 1.2rem;
   }
+
+  .strategies-container {
+    flex-direction: column;
+    align-items: center;
+}
+
+.strategy-divider {
+    flex-direction: row;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px 0;
+}
+
+.divider-line {
+    height: 2px;
+    width: 100%;
+}
+
+.halal-badge {
+    margin: 0 20px;
+}
   }
   
   @media (max-width: 768px) {
     .logo{
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
 
     .top-bar {
@@ -744,6 +984,32 @@
     .form-row {
       grid-template-columns: 1fr;
     }
+
+    #halal-investment {
+      padding: 60px 0;
+  }
+  
+  .halal-intro {
+      padding: 20px;
+  }
+  
+  .strategy-card {
+      padding: 25px;
+  }
+
+  .chart-bottom {
+    grid-template-columns: 1fr;
+}
+
+.chart-description {
+  font-size: 0.85rem;
+  padding: 10px;
+}
+  
+  .benefits-section,
+  .cta-section {
+      padding: 30px 20px;
+  }
   }
   
   @media (max-width: 576px) {
