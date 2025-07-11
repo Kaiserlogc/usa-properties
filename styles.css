@@ -109,7 +109,7 @@
 /* Обновленные стили для индикатора прокрутки */
 .scroll-indicator {
   position: absolute;
-  bottom: 30px;
+  bottom: 1px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
