@@ -135,6 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
 
     // Данные для Флориды (взяты из CSV)
     const floridaData = processData(`observation_date,FLSTHPI
@@ -272,4 +273,22 @@ document.addEventListener('DOMContentLoaded', function() {
     createChart('floridaChart', floridaData, '#0077b6');
     createChart('arizonaChart', arizonaData, '#ff7f50');
     createChart('usChart', usData, '#6c757d');
+});
+
+// Скрипт для кнопки "Наверх"
+const backToTopBtn = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('visible');
+    } else {
+        backToTopBtn.classList.remove('visible');
+    }
+});
+
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });

@@ -42,7 +42,7 @@
     background-size: cover;
     background-position: center;
     color: var(--text-light);
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
   }
@@ -106,45 +106,6 @@
   background: linear-gradient(to right, #48cae4, #90e0ef);
 }
 
-/* Обновленные стили для индикатора прокрутки */
-.scroll-indicator {
-  position: absolute;
-  bottom: 1px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: var(--white);
-  opacity: 0.8;
-  animation: bounce 2s infinite;
-  z-index: 10;
-}
-
-
-.arrow-down {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: pulse 1.5s infinite;
-}
-
-.arrow-down i {
-  font-size: 1.5rem;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: translateY(0); opacity: 0.8; }
-  50% { transform: translateY(-5px); opacity: 1; }
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
-  40% {transform: translateY(-15px) translateX(-50%);}
-  60% {transform: translateY(-7px) translateX(-50%);}
-}
 
 /* Улучшенное меню для мобильных */
 @media (max-width: 992px) {
@@ -255,262 +216,312 @@
     background: var(--secondary-blue);
     transform: translateY(-3px);
   }
+
+  /* Стили для стрелки "Explore More" */
+.scroll-down {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  margin-top: 100px;
+  animation: bounce 2s infinite;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.scroll-down:hover {
+  opacity: 1;
+  transform: translateY(5px);
+}
+
+.scroll-down span {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.scroll-down i {
+  font-size: 1.5rem;
+}
+
+/* Анимация подпрыгивания */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+  }
+  40% {
+      transform: translateY(-10px);
+  }
+  60% {
+      transform: translateY(-5px);
+  }
+}
+
+/* Стили для кнопки "Наверх" */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--primary-blue);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  z-index: 999;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: var(--dark-blue);
+  transform: translateY(-3px) scale(1.05);
+}
   
   /* Halal Investment Section */
-#halal-investment {
-  padding: 80px 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.halal-intro {
-  background: white;
-  padding: 25px 40px;
-  border-radius: 12px;
-  margin: 0 auto 50px;
-  box-shadow: 0 5px 25px rgba(2, 62, 138, 0.08);
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  max-width: 800px;
-}
-
-.halal-intro p {
-  font-size: 1.15rem;
-  line-height: 1.7;
-  color: #2a4365;
-  margin: 0;
-}
-
-.strategies-container {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 60px;
-  flex-wrap: wrap;
-}
-
-.strategy-column {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  flex: 1;
-  min-width: 300px;
-  max-width: 450px;
-}
-
-.strategy-divider {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 50px;
-  position: relative;
-}
-
-.divider-line {
-  flex: 1;
-  width: 2px;
-  background: linear-gradient(to bottom, transparent, #0077b6, transparent);
-}
-
-.halal-badge {
-  background: #023e8a;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 30px;
-  font-weight: 600;
-  margin: 15px 0;
-  white-space: nowrap;
-  box-shadow: 0 4px 15px rgba(2, 62, 138, 0.3);
-}
-
-.strategy-card {
-  background: white;
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.07);
-  transition: all 0.3s ease;
-  border: 1px solid #e1f0fa;
-  position: relative;
-  overflow: hidden;
-}
-
-.strategy-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 119, 182, 0.15);
-}
-
-.strategy-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(to bottom, #0077b6, #00b4d8);
-}
-
-.strategy-icon {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #0077b6, #00b4d8);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.strategy-card h3 {
-  color: #023e8a;
-  font-size: 1.4rem;
-  margin-bottom: 15px;
-}
-
-.strategy-detail {
-  margin-bottom: 25px;
-}
-
-.strategy-detail strong {
-  display: block;
-  color: #0077b6;
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-}
-
-.strategy-detail p {
-  color: #4a5568;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.strategy-numbers {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  margin-top: 15px;
-}
-
-.number-box {
-  background: #f0f8ff;
-  border-radius: 8px;
-  padding: 15px;
-  text-align: center;
-  border: 1px solid #cde8f8;
-}
-
-.number-box span {
-  display: block;
-  font-weight: 700;
-  color: #023e8a;
-  font-size: 1.2rem;
-  margin-bottom: 5px;
-}
-
-.number-box small {
-  display: block;
-  color: #4a5568;
-  font-size: 0.85rem;
-}
-
-.benefits-section {
-  background: white;
-  border-radius: 12px;
-  padding: 40px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
-  position: relative;
-  z-index: 1;
-  margin-bottom: 40px;
-  text-align: center;
-  max-width: 1000px;
-  margin: 0 auto 50px;
-}
-
-.benefits-section h3 {
-  color: #023e8a;
-  font-size: 1.8rem;
-  margin-bottom: 35px;
-}
-
-.benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-}
-
-.benefit-item {
-  padding: 25px 20px;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-  border: 1px solid #e6f2ff;
-}
-
-.benefit-item:hover {
-  background: #f8fbff;
-  transform: translateY(-5px);
-  box-shadow: 0 7px 15px rgba(0, 119, 182, 0.1);
-}
-
-.benefit-item i {
-  font-size: 2.5rem;
-  color: #0077b6;
-  margin-bottom: 20px;
-}
-
-.benefit-item h4 {
-  color: #023e8a;
-  font-size: 1.2rem;
-  margin-bottom: 12px;
-}
-
-.benefit-item p {
-  color: #4a5568;
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.cta-section {
-  background: linear-gradient(135deg, #0077b6, #023e8a);
-  padding: 40px;
-  border-radius: 12px;
-  text-align: center;
-  color: white;
-  position: relative;
-  z-index: 1;
-  box-shadow: 0 10px 30px rgba(2, 62, 138, 0.3);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.cta-section p {
-  font-size: 1.25rem;
-  margin-bottom: 25px;
-  line-height: 1.6;
-}
-
-.cta-section .cta-button {
-  background: white;
-  color: #0077b6;
-  font-weight: 700;
-  padding: 15px 50px;
-  font-size: 1.1rem;
-  border: none;
-  transition: all 0.3s ease;
-}
-
-.cta-section .cta-button:hover {
-  background: #e6f7ff;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
-}
+  #halal-investment {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+  }
   
-  /* About section */
+  .halal-intro {
+    background: white;
+    padding: 25px 40px;
+    border-radius: 12px;
+    margin: 0 auto 50px;
+    box-shadow: 0 5px 25px rgba(2, 62, 138, 0.08);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+  }
+  
+  .halal-intro p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #2a4365;
+    margin: 0;
+  }
+  
+  .strategies-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+  }
+  
+  .strategy-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 450px;
+  }
+  
+  
+  .halal-badge {
+    background: #023e8a;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    margin: 15px 0;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(2, 62, 138, 0.3);
+  }
+  
+  .strategy-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s ease;
+    border: 1px solid #e1f0fa;
+    overflow: hidden;
+  }
+  
+  .strategy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 119, 182, 0.15);
+  }
+  
+  .strategy-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #0077b6, #00b4d8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .strategy-card h3 {
+    color: #023e8a;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+  
+  .strategy-detail {
+    margin-bottom: 25px;
+  }
+  
+  .strategy-detail strong {
+    display: block;
+    color: #0077b6;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  
+  .strategy-detail p {
+    color: #4a5568;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .strategy-numbers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .number-box {
+    background: #f0f8ff;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .number-box span {
+    display: block;
+    font-weight: 700;
+    color: #023e8a;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  
+  .number-box small {
+    display: block;
+    color: #4a5568;
+    font-size: 0.85rem;
+  }
+  
+  .benefits-section {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 1;
+    margin-bottom: 40px;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto 50px;
+  }
+  
+  .benefits-section h3 {
+    color: #023e8a;
+    font-size: 1.8rem;
+    margin-bottom: 35px;
+  }
+  
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+  }
+  
+  .benefit-item {
+    padding: 25px 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid #e6f2ff;
+  }
+  
+  .benefit-item:hover {
+    background: #f8fbff;
+    transform: translateY(-5px);
+    box-shadow: 0 7px 15px rgba(0, 119, 182, 0.1);
+  }
+  
+  .benefit-item i {
+    font-size: 2.5rem;
+    color: #0077b6;
+    margin-bottom: 20px;
+  }
+  
+  .benefit-item h4 {
+    color: #023e8a;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  
+  .benefit-item p {
+    color: #4a5568;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .cta-section {
+    background: #0077b6;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 10px 30px rgba(2, 62, 138, 0.3);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .cta-section p {
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
+  }
+  
+  .cta-section .cta-button {
+    background: white;
+    color: #0077b6;
+    font-weight: 700;
+    padding: 15px 50px;
+    font-size: 1.1rem;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  .cta-section .cta-button:hover {
+    background: #e6f7ff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+  }
+
   .section {
     padding: 100px 0;
   }
@@ -534,6 +545,86 @@
     margin: 0 auto;
     font-size: 1.1rem;
   }
+
+  .section-title-steps {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  .section-title-steps h2 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .section-title-steps p {
+    color: white;
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+  }
+
+  
+.rental-growth-section {
+  margin: 50px 0;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  position: relative;
+  z-index: 1;
+  border: 1px solid #e6f2ff;
+}
+
+.rental-growth-section h3 {
+  text-align: center;
+  color: var(--dark-blue);
+  margin-bottom: 25px;
+  font-size: 1.7rem;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+th, td {
+  padding: 15px 20px;
+  text-align: center;
+  border: 1px solid #e0e7f1;
+}
+
+th {
+  background-color: var(--primary-blue);
+  color: white;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+tr:nth-child(even) {
+  background-color: #f0f8ff;
+}
+
+tr:hover {
+  background-color: #e6f7ff;
+}
+
+.table-note {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: #4a5568;
+  font-style: italic;
+}
+
   
   .about-content {
     display: grid;
@@ -594,7 +685,6 @@
   text-align: left;
   font-size: 0.9rem;
   color: var(--dark-blue);
-  border-left: 3px solid var(--accent-blue);
 }
 
 .chart-description p {
@@ -709,7 +799,7 @@
   
   /* Steps */
   .steps {
-    background: linear-gradient(to right, var(--dark-blue), var(--primary-blue));
+    background: #0077b6;
     color: var(--white);
     padding: 100px 0;
   }
@@ -864,6 +954,9 @@
   }
   
   .footer-links li {
+    display: flex;
+    gap: 10px;
+    align-items: center;
     margin-bottom: 12px;
     list-style: none;
   }
@@ -997,6 +1090,11 @@
   }
   
   @media (max-width: 576px) {
+
+    .scroll-down {
+      display: none;
+    }
+
     .steps-grid {
       grid-template-columns: 1fr;
     }
