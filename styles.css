@@ -44,7 +44,7 @@ body {
 }
 
 .section-title h2 {
-  font-size: 2.3rem;
+  font-size: 1.8rem;
   color: var(--dark-blue);
   margin-bottom: 20px;
   text-transform: uppercase;
@@ -97,8 +97,7 @@ body {
 
 /* Header */
 header {
-  background: linear-gradient(rgba(2, 62, 138, 0.8), rgba(2, 62, 138, 0.8)), 
-              url('https://images.unsplash.com/photo-1503174971373-b1f69850bded?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1813&q=80');
+  background: linear-gradient(rgba(33, 66, 106, 0.12), rgba(10, 27, 45, 0.8)), url('https://images.unsplash.com/photo-1503174971373-b1f69850bded?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1813&q=80');
   background-size: cover;
   background-position: center;
   color: var(--text-light);
@@ -198,17 +197,16 @@ nav ul li a:hover {
 }
 
 .hero h1 {
-  font-size: 4rem;
+  font-size: 3.7rem;
   margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
 .hero p {
-  font-size: 1.5rem;
-  max-width: 800px;
+  font-size: 1.3rem;
+  max-width: 1000px;
   margin: 0 auto 40px;
-  color: var(--light-blue);
 }
 
 /* Элементы прокрутки */
@@ -280,13 +278,11 @@ nav ul li a:hover {
 .halal-intro {
   background: var(--white);
   padding: 25px 40px;
-  border-radius: 12px;
   margin: 0 auto 50px;
-  box-shadow: 0 5px 25px rgba(2, 62, 138, 0.08);
   position: relative;
   z-index: 1;
   text-align: center;
-  max-width: 800px;
+  max-width: 1200px;
 }
 
 .halal-intro p {
@@ -328,6 +324,7 @@ nav ul li a:hover {
 
 .strategy-card {
   display: flex;
+  min-height: 550px;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -484,12 +481,9 @@ nav ul li a:hover {
 /* Rent Growth */
 .rental-growth-section {
   margin: 50px 0;
-  border-radius: 10px;
   padding: 30px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
   position: relative;
   z-index: 1;
-  border: 1px solid #e6f2ff;
 }
 
 .rental-growth-section h3 {
@@ -657,6 +651,7 @@ tr:hover {
   align-items: center;
   margin-bottom: 15px;
   color: var(--gray);
+  gap: 10px;
 }
 
 .property-price {
@@ -887,7 +882,7 @@ footer {
   }
 
   .section-title h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   
   .steps-grid {
@@ -924,7 +919,7 @@ footer {
   }
   
   nav ul li a {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     padding: 10px 0;
     display: block;
     width: 100%;
